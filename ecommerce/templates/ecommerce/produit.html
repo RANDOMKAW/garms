@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Garms -- {{article.nomProduit}}{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-xs-6">
+    <img src="{{article.image.url}}" alt="">
+  </div>
+  <div class="col-xs-6">
+    <h3>{{article.nomProduit}}</h3>
+    <p>{{article.description}}</p>
+    <p class="centrer">{{article.prix}} €</p>
+    <a id="ajoutPanier"href="#">AJOUTER AU PANIER</a>
+
+  </div>
+
+</div>
+<div class="produitsLies">
+  <h2> CES PRODUITS PEUVENT VOUS INTÉRESSER</h2>
+  <div class="row">
+    <div class="col-xs-4">
+      <img src="{% static "img/GarmsSmallLogo.jpg" %}" alt="">
+      <p class="prix">XXX €<p>
+    </div>
+    <div class="col-xs-4">
+      <img src="{% static "img/GarmsSmallLogo.jpg" %}" alt="">
+      <p class="prix">XXX €<p>
+    </div>
+    <div class="col-xs-4">
+      <img src="{% static "img/GarmsSmallLogo.jpg" %}" alt="">
+      <p class="prix">XXX €<p>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-xs-offset-5 col-xs-2">
+      <a href="#">EN VOIR PLUS...</a>
+
+    </div>
+
+
+  </div>
+
+
+</div>
+
+{% endblock %}
