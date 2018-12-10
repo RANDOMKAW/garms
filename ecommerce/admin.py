@@ -3,9 +3,9 @@ from .models import  *
 from django.utils.text import Truncator
 
 class ArticleAdmin(admin.ModelAdmin):
-    fields = ('nomProduit', 'slug', 'description','prix', 'collection','categorie','image')
-    list_display   = ('nomProduit','apercu_description','prix','categorie','collection','date')
-    list_filter    = ('collection','categorie')
+    fields = ('nomProduit', 'slug', 'description','genre','prix', 'collection','categorie','image')
+    list_display   = ('nomProduit','apercu_description','genre','prix','categorie','collection','date')
+    list_filter    = ('collection','categorie', 'genre')
     date_hierarchy = 'date'
     ordering       = ('date', )
     #search_fields  = ('titre', 'contenu')
@@ -24,7 +24,7 @@ admin.site.register(Article,ArticleAdmin)
 
 
 class MarqueAdmin(admin.ModelAdmin):
-    fields = ('nomMarque', 'slug', 'description','image')
+    fields = ('nomMarque', 'slug', 'description','produits','image')
     list_display   = ('nomMarque', 'slug', 'description')
     filter    = ('nomMarque')
     ordering       = ('nomMarque', )

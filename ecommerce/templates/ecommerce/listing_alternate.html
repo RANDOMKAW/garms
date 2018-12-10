@@ -4,6 +4,31 @@
 {% block title %} Listing {% endblock %}
 {% block content %}
 <div class="row">
+  <div class="col-xs-6">
+    <h1>Supreme</h1>
+  </div>
+  <div class="col-xs-6">
+    <div class="row">
+      {% for article in articles %}
+      <div class="col-xs-4">
+        <a href="{% url "article" article.slug %}">
+          <img src="{{ article.image.url}}" alt="{{article.image.name}}">
+          <p class="centrer">{{article.nomProduit}}</p>
+          <p class="centrer">{{article.prix}} €<p>
+        </a>
+      </div>
+      {% if forloop.counter|divisibleby:3 %}
+    </div>
+    <div class="row">
+        {% endif %}
+
+      {% endfor %}
+    </div>
+
+  </div>
+
+</div>
+<div class="row">
   {% for article in articles %}
   <div class="col-xs-4">
     <a href="{% url "article" article.slug %}">

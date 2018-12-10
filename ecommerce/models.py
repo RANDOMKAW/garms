@@ -8,7 +8,8 @@ class Article(models.Model):
     prix = models.DecimalField(max_digits=6, decimal_places=2,default=0)
     collection = models.CharField(max_length=42,null=True)
     categorie=models.CharField(max_length=42, null=True)
-    image=models.ImageField(upload_to="photos/",null=True)
+    image=models.ImageField(upload_to="photos/",default='../../../../../static/img/GarmsSmallLogo.jpg')
+    genre=models.CharField(max_length=42, null=True)
     date=models.DateTimeField(default=timezone.now, verbose_name="Date d'upload")
 
 
