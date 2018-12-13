@@ -24,7 +24,7 @@
 </head>
 
 <body>
-  <div class="container-fluid">
+  <div class="container">
     <header>
 
       <div class="row">
@@ -37,16 +37,59 @@
       </div>
       {% block nav %}
       <nav>
-        <ul class="menu">
-          <li><a href="{% url "home" %}">Accueil</a></li>
-          <li><a href="{% url "collections" %}">Collections</a></li>
-          <li><a href="{% url "marques" %}">Marques</a></li>
-          <li><a href="{% url "genre_listing" "M" %}">Homme</a></li>
-          <li><a href="{% url "genre_listing" "F" %}">Femme</a></li>
-          <li><a href="{% url "genre_listing" "U" %}">Unisexe</a></li>
+        <div class="dropdown">
+          <ul class="menu border-top">
+            <li><a href="{% url "home" %}">Accueil</a></li>
+            <li><a href="{% url "collections" %}">Collections</a></li>
+            <li><a href="{% url "marques" %}">Marques</a></li>
+            <li><a href="{% url "genre_listing" "M" %}">Homme</a></li>
+            <li><a href="{% url "genre_listing" "F" %}">Femme</a></li>
+            <li><a href="{% url "genre_listing" "U" %}">Unisexe</a></li>
 
 
-        </ul>
+          </ul>
+            <div class="dropdown-content">
+              <ul class="menu">
+                <div class="">
+
+                </div>
+                <div class="">
+                  {% for collection in collections %}
+
+                  {% endfor %}
+
+
+                </div>
+                <div class="">
+                  <li><a href="">Test</a></li>
+                  {% for marque in marques %}
+
+                  {% endfor %}
+
+
+                </div>
+                <div class="">
+                  <li><a href="">Test</a></li>
+
+                </div>
+                <div class="">
+                  <li><a href="">Test</a></li>
+
+
+                </div>
+                <div class="">
+                  <li><a href="">Test</a></li>
+
+
+                </div>
+
+
+
+              </ul>
+            </div>
+
+        </div>
+
       </nav>
       {% endblock %}
 

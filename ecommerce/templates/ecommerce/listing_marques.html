@@ -3,24 +3,22 @@
 
 {% block title %} Listing {% endblock %}
 {% block content %}
+{% for marque in marques %}
 <div class="row">
   <div class="col-xs-6">
-    <h1>Supreme</h1>
+    <h1 class="centrer">{{marque.nomMarque}}</h1>
   </div>
   <div class="col-xs-6">
-    <div class="row">
-      {% for article in articles %}
-      <div class="col-xs-4">
+    <div class=" row horizontalScroll">
+      {% for article in marque.produits.all %}
+      <div class="col-xs-4 horizontalScrollContent">
         <a href="{% url "article" article.slug %}">
           <img src="{{ article.image.url}}" alt="{{article.image.name}}">
           <p class="centrer">{{article.nomProduit}}</p>
           <p class="centrer">{{article.prix}} €<p>
         </a>
       </div>
-      {% if forloop.counter|divisibleby:3 %}
-    </div>
-    <div class="row">
-        {% endif %}
+
 
       {% endfor %}
     </div>
@@ -28,22 +26,8 @@
   </div>
 
 </div>
-<div class="row">
-  {% for article in articles %}
-  <div class="col-xs-4">
-    <a href="{% url "article" article.slug %}">
-      <img src="{{ article.image.url}}" alt="{{article.image.name}}">
-      <p class="centrer">{{article.nomProduit}}</p>
-      <p class="centrer">{{article.prix}} €<p>
-    </a>
-  </div>
-  {% if forloop.counter|divisibleby:3 %}
-</div>
-<div class="row">
-    {% endif %}
+{% endfor %}
 
-  {% endfor %}
-</div>
 <div class="row">
   <div class="col-xs-offset-4 col-xs-4 ligne">
     <p>Page</p>

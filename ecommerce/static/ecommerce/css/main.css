@@ -7,10 +7,10 @@ a,a:hover{
 h2,h4{
   text-align: center;
 }
-
-.menu{
+.border-top{
   border-top: black solid 2px;
-
+}
+.menu{
   display:flex;
   flex-flow: row nowrap;
   justify-content: space-around;
@@ -48,6 +48,31 @@ h2,h4{
   flex-flow:row: nowrap;
   justify-content: space-around;
 }
-/* body{
+body{
   background-color: lightblue;
-} */
+}
+
+.horizontalScroll{
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+}
+.horizontalScrollContent {
+  flex: 0 0 auto;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  width:100%;
+  z-index: 1;
+}
+.dropdown-content ul {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: flex;
+}
+.dropdown:hover .dropdown-content {display: block;}

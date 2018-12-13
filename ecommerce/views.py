@@ -6,38 +6,33 @@ from ecommerce.models import  *
 
 def home(request):
     articles = Article.objects.all().order_by("date") # Nous sélectionnons tous nos articles
-    marque1=Marque.objects.order_by("?").first()
-    marque2=Marque.objects.order_by("?").first()
+    marques=Marque.objects.all().order_by("nomMarque")
+    collections=Collections.objects.all().order_by("nomMarque")
+    marque1=marques.order_by("?").first()
+    marque2=marques.order_by("?").first()
     while marque1==marque2:
-            marque2=Marque.objects.order_by("?").first()
-
+            marque2=marques.order_by("?").first()
 
     brandArticles1=marque1.produits.all().order_by("?")
     brandArticles2=marque2.produits.all().order_by("?")
 
 
-    return render(request, 'ecommerce/base.html', {'brandArticles1': brandArticles1,'brandArticles2': brandArticles2, 'articles': articles, 'marque1':marque1, 'marque2':marque2})
-
-
-
+    return render(request, 'ecommerce/base.html', {'marques':marques, 'collections':collections, 'brandArticles1': brandArticles1,'brandArticles2': brandArticles2, 'articles': articles, 'marque1':marque1, 'marque2':marque2})
 
 
 def collections(request):
     """
     Vue qui affiche les différentes collections.
     """
-    return HttpResponse(
-        """
-        <h1>Collections</h1>
-        <p>Cette page contiendra les futures collections de Garms</p>
-        """
-    )
+    collections=Collection.objects.all()
+    return render(request, "ecommerce/listing_collections.html", {'collections':collections})
+
 def marques(request):
     """
     Vue qui affiche les différentes marques.
     """
-    articles=Article.objects.all()
-    return render(request, "ecommerce/listing.html", {'articles':articles})
+    marques=Marque.objects.all()
+    return render(request, "ecommerce/listing_marques.html", {'marques':marques})
 
 
 def tousProduits(request):

@@ -6,7 +6,6 @@ class Article(models.Model):
     slug = models.SlugField(max_length=100,null=True)
     description = models.TextField(null=True)
     prix = models.DecimalField(max_digits=6, decimal_places=2,default=0)
-    collection = models.CharField(max_length=42,null=True)
     categorie=models.CharField(max_length=42, null=True)
     image=models.ImageField(upload_to="photos/",default='../../../../../static/img/GarmsSmallLogo.jpg')
     genre=models.CharField(max_length=42, null=True)
@@ -32,7 +31,7 @@ class Marque(models.Model):
     nomMarque = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100,null=True)
     description = models.TextField(null=True)
-    image=models.ImageField(upload_to="photos/",null=True)
+    image=models.ImageField(upload_to="photos/",default='../../../../../static/img/GarmsSmallLogo.jpg')
     produits = models.ManyToManyField(Article, related_name="marques")
     class Meta:
         verbose_name = "marque"
@@ -46,3 +45,22 @@ class Marque(models.Model):
         nous traiterons plus tard dans l'administration
         """
         return self.nomMarque
+
+class Collection(models.Model):
+    nomCollection = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100,null=True)
+    description = models.TextField(null=True)
+    image=models.ImageField(upload_to="photos/",default='../../../../../static/img/GarmsSmallLogo.jpg')
+    produits = models.ManyToManyField(Article, related_name="collections")
+    class Meta:
+        verbose_name = "collection"
+        ordering = ['nomCollection']
+
+
+    def __str__(self):
+        """
+        Cette méthode que nous définirons dans tous les modèles
+        nous permettra de reconnaître facilement les différents objets que
+        nous traiterons plus tard dans l'administration
+        """
+        return self.nomCollection
