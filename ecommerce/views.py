@@ -7,7 +7,7 @@ from ecommerce.models import  *
 def home(request):
     articles = Article.objects.all().order_by("date") # Nous sélectionnons tous nos articles
     marques=Marque.objects.all().order_by("nomMarque")
-    collections=Collections.objects.all().order_by("nomMarque")
+    collections=Collection.objects.all().order_by("nomCollection")
     marque1=marques.order_by("?").first()
     marque2=marques.order_by("?").first()
     while marque1==marque2:
@@ -53,7 +53,7 @@ def collection_listing(request, id_collection):
     """
     Vue qui affiche la collection sélectionnée.
     """
-    articles=Article.objects.filter(collection=id_collection)
+    articles=Collection.objects.get(slug=id_collection).produits.all()
     return render(request, "ecommerce/listing.html", {'articles':articles})
 
 def marque_listing(request, id_marque):

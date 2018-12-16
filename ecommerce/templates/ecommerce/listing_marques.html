@@ -13,7 +13,7 @@
       {% for article in marque.produits.all %}
       <div class="col-xs-4 horizontalScrollContent">
         <a href="{% url "article" article.slug %}">
-          <img src="{{ article.image.url}}" alt="{{article.image.name}}">
+          <img class="img-fluid" src="{{ article.image.url}}" alt="{{article.image.name}}">
           <p class="centrer">{{article.nomProduit}}</p>
           <p class="centrer">{{article.prix}} €<p>
         </a>
