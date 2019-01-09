@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Garms -- {{page.nomPage}}{% endblock %}
+{% block content %}
+<h2>{{page.nomPage}}</h2>
+<div class="row">
+  <div class="col-xs-offset-1 col-md-offset-2 col-xs-10 col-md-8">
+    <p>{{page.content}}</p>
+  </div>
+
+</div>
+{% endblock %}

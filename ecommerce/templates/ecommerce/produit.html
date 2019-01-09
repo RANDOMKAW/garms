@@ -4,10 +4,10 @@
 {% block title %} Garms -- {{article.nomProduit}}{% endblock %}
 {% block content %}
 <div class="row">
-  <div class="col-xs-6">
+  <div class="col-md-6">
     <img class="img-fluid" src="{{article.image.url}}" alt="">
   </div>
-  <div class="col-xs-6">
+  <div class="col-md-6">
     <h3>{{article.nomProduit}}</h3>
     <p>{{article.description}}</p>
     <p class="centrer">{{article.prix}} €</p>
@@ -19,22 +19,22 @@
 <div class="produitsLies">
   <h2> CES PRODUITS PEUVENT VOUS INTÉRESSER</h2> <!-- système de tags liés au produit -->
   <div class="row">
-    <div class="col-xs-4">
+    <div class="col-md-4">
       <img class="img-fluid" src="{% static "img/GarmsSmallLogo.jpg" %}" alt="">
       <p class="prix">XXX €<p>
     </div>
-    <div class="col-xs-4">
+    <div class="col-md-4">
       <img class="img-fluid" src="{% static "img/GarmsSmallLogo.jpg" %}" alt="">
       <p class="prix">XXX €<p>
     </div>
-    <div class="col-xs-4">
+    <div class="col-md-4">
       <img class="img-fluid" src="{% static "img/GarmsSmallLogo.jpg" %}" alt="">
       <p class="prix">XXX €<p>
     </div>
 
   </div>
   <div class="row">
-    <div class="col-xs-offset-5 col-xs-2">
+    <div class="col-md-offset-5 col-md-2">
       <a href="#">EN VOIR PLUS...</a>
 
     </div>

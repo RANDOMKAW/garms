@@ -9,5 +9,8 @@ urlpatterns = [
         path('brands/<id_marque>', views.marque_listing, name="marque_listing"),
         path('genre/<gender>', views.genre_listing, name="genre_listing"),
         path('article/<id_article>', views.article, name="article"),
+        path('cart', views.cart, name="cart"),
+        path('<static_page>', views.static, name="static"),
+
 
 ]

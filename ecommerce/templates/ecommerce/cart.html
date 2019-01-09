@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Garms -- Panier{% endblock %}
+{% block content %}
+
+<div class="row">
+  <div class="col-xs-offset-2 col-xs-8">
+    <h4>Panier</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-offset-3 col-xs-6">
+      <h6>Article</h6>
+  </div>
+  <div class="col-xs-2">
+      <h6>Prix</h6>
+  </div>
+  <div class="col-xs-1">
+    <h6>Retirer</h6>
+  </div>
+</div>
+
+{% for article in articles %}
+
+<div class="row">
+  <div class="col-xs-3">
+    <img class="img-fluid" src="{% static "img/GarmsSmallLogo.jpg" %}" alt="">
+        <!-- image -->
+  </div>
+  <div class="col-xs-6">
+        <!-- description -->
+        <p>DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTIONDESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTIONDESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTIONDESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTIONDESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTIONDESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION</p>
+  </div>
+  <div class="col-xs-2">
+    <p>PRIXPRIX</p>
+
+  </div>
+  <div class="col-xs-1">
+        <!-- icone croix-->
+  </div>
+
+</div>
+{% empty %}
+<div class="row">
+  <div class="col-xs-offset-2 col-xs-8">
+    <p>Votre panier est vide. Vous pouvez commencer votre shopping sur la <a href="/" class="bold">page d'accueil</a> du site. </p>
+
+  </div>
+
+</div>
+{% endfor %}
+<div class="row">
+  <div class="col-xs-offset-3 col-xs-6">
+    <p>Total</p>
+    <p>Estimation de l'expédition</p>
+    <p>Frais de douane et taxes</p>
+    <p>Total de la commande</p>
+  </div>
+
+</div>
+
+
+
+
+{% endblock%}

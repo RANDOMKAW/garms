@@ -5,13 +5,15 @@
 {% block content %}
 {% for collection in collections %}
 <div class="row">
-  <div class="col-xs-6">
-    <h1 class="centrer">{{collection.nomCollection}}</h1>
+  <div class="col-md-6 col-xs-3">
+    <a href="{% url "collection_listing" collection.slug %}">
+      <h1 class="centrer">{{collection.nomCollection}}</h1>
+    </a>
   </div>
-  <div class="col-xs-6">
+  <div class="col-md-6 col-xs-9">
     <div class="row horizontalScroll">
       {% for article in collection.produits.all %}
-      <div class="col-xs-4 horizontalScrollContent">
+      <div class="col-md-4 col-xs-12 horizontalScrollContent article">
         <a href="{% url "article" article.slug %}">
           <img class="img-fluid" src="{{ article.image.url}}" alt="{{article.image.name}}">
           <p class="centrer">{{article.nomProduit}}</p>
@@ -28,27 +30,5 @@
 </div>
 {% endfor %}
 
-<div class="row">
-  <div class="col-xs-offset-4 col-xs-4 ligne">
-    <p>Page</p>
-    <a href="#">1</a>
-    <a href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
 
-  </div>
-  <div class="col-xs-offset-1 col-xs-3 ligne">
-    <p>Afficher</p>
-    <select class="" name="">
-      <option value="vingt">20</option>
-      <option value="quarante">40</option>
-      <option value="soixante">60</option>
-
-
-    </select>
-    <p>articles par page.</p>
-
-  </div>
-
-</div>
 {% endblock %}

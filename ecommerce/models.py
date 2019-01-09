@@ -64,3 +64,39 @@ class Collection(models.Model):
         nous traiterons plus tard dans l'administration
         """
         return self.nomCollection
+
+
+class PromoSlideshow(models.Model):
+    title=models.CharField(max_length=42)
+    content=models.TextField(max_length=100)
+    image=models.ImageField(upload_to="photos/",default='../../../../../static/img/GarmsSmallLogo.jpg')
+    date=models.DateTimeField(default=timezone.now, verbose_name="Date d'upload")
+
+
+    def __str__(self):
+        """
+        Cette méthode que nous définirons dans tous les modèles
+        nous permettra de reconnaître facilement les différents objets que
+        nous traiterons plus tard dans l'administration
+        """
+
+        return self.title
+
+class Page(models.Model):
+    nomPage = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100,null=True)
+    content = models.TextField(null=True)
+    image=models.ImageField(upload_to="photos/",default='../../../../../static/img/GarmsSmallLogo.jpg')
+
+    class Meta:
+        verbose_name = "page"
+        ordering = ['nomPage']
+
+
+    def __str__(self):
+        """
+        Cette méthode que nous définirons dans tous les modèles
+        nous permettra de reconnaître facilement les différents objets que
+        nous traiterons plus tard dans l'administration
+        """
+        return self.nomPage

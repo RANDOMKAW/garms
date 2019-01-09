@@ -1,12 +1,17 @@
 body{
   color:rgb(0,30,96);
 }
+p{
+  font-size: .875em;
+  font-weight: 400;
+
+}
 img{
   width:100%;
 }
 a,a:hover, a:active{
   color:rgb(0,30,96);
-  background-color: none;
+  background-color: transparent;
   text-decoration: none;
 }
 h2,h4{
@@ -15,6 +20,20 @@ h2,h4{
 ul{
   margin:0;
   padding-bottom: 10px;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+}
+/* h1,h2,h3,h4, nav{
+  font-family: 'Prata', serif;
+} */
+
+
+h2{
+  margin-bottom: 3vh;
+}
+.row{
+  margin:0;
 }
 
 .menu{
@@ -66,6 +85,23 @@ ul{
 .horizontalScrollContent {
   flex: 0 0 auto;
 }
+/* @media (max-width: 767.98px) { */
+  .responsiveScroll{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+  }
+  .responsiveScrollContent {
+    flex: 0 0 auto;
+  }
+  .article{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+  }
+
+/* } */
 
 .dropdown-content {
   display: none;
@@ -83,7 +119,47 @@ ul{
 .dropdown:hover .dropdown-content,.dropdown-content:hover {
   display: block;
 }
+
+.promoMarque{
+  margin-top:5vh;
+  margin-bottom:5vh;
+}
+.container-fluid{
+  padding-left:0;
+  padding-right:0;
+}
+.carousel-control.left, .carousel-control.right {
+  background: none !important;
+  filter: progid: none !important;
+  outline: 0;
+ }
+.carousel .carousel-control {
+  visibility: hidden;
+}
+.carousel:hover .carousel-control {
+  visibility: visible;
+}
+.bold{
+  font-weight: bold;
+}
+
+
 #logo{
   margin-top: 5vh;
   margin-bottom: 5vh;
+}
+#myCarousel, #myCarousel img {
+  height:50vh;
+  width:auto;
+  margin:auto;
+}
+
+footer{
+  margin-top: 5vh;
+  padding-top:2vh;
+  height:20vh;
+  background-color: rgb(0,30,96);
+}
+footer .menu a li{
+    color:white !important;
 }
